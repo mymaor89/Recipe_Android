@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="Heading_Creme_Brulee">Creme Brulee</string>
+    <string name="Heading_Chocolate_Chip_Cookies">Chocolate Chip Cookies</string>
+    <string name="Ingredients_heading">Ingredients</string>
+    <string name="Steps">Steps</string>
+
+
+    <array name="ingerdients_Creme_Brulee">
+        <item>1 quart heavy cream</item>
+        <item>1 vanilla bean, split and scraped</item>
+        <item>1 cup vanilla sugar, divided</item>
+        <item>6 large egg yolks</item>
+        <item>2 quarts hot water</item>
+    </array>
+
+    <array name="ingerdients_Chocolate_Chip_Cookies_array">
+        <item>2 1/4 cups flour</item>
+        <item>1 teaspoon baking soda</item>
+        <item>1/2 teaspoon salt</item>
+        <item>1 cup butter, softened</item>
+        <item>3/4 cup granulated sugar</item>
+        <item>3/4 cup packed brown sugar</item>
+        <item>1 egg</item>
+        <item>1 teaspoon vanilla</item>
+        <item>2 cups semisweet chocolate chips</item>
+        <item>1 cup coarsely chopped nuts, if desired</item>
+
+    </array>
+    <array name="steps_Creme_Brulee_array">
+        <item>Preheat oven to 300 degrees F (150 degrees C).</item>
+        <item> Beat egg yolks, 4 tablespoons white sugar and vanilla extract in a mixing bowl until thick and creamy.</item>
+        <item> Pour cream into a saucepan and stir over low heat until it almost comes to boil. Remove the cream from heat immediately. Stir cream into the egg yolk mixture; beat until combined.</item>
+        <item> Pour cream mixture into the top pan of a double boiler. Stir over simmering water until mixture lightly coats the back of a spoon, about 3 minutes. Remove mixture from heat immediately and pour into a shallow heat-proof dish.</item>
+        <item> Bake in preheated oven for 30 minutes. Remove from oven and cool to room temperature. Refrigerate for at least 1 hour or overnight.</item>
+        <item>Preheat oven to broil.</item>
+        <item>In a small bowl combine remaining 2 tablespoons white sugar and brown sugar. Sift this mixture evenly over custard. Place dish under broiler until sugar melts, about 2 minutes. Watch carefully so as not to burn.</item>
+        <item>Remove from heat and allow to cool. Refrigerate until custard is set again.</item>
+
+
+
+
+    </array>
+
+</resources>
