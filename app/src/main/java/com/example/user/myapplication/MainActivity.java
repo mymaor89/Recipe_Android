@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     TextView  tv_heading;
     ImageView imageView;
     Button btn_ingredients;
+    Button btn_steps;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String message = intent.getStringExtra("EXTRA_MESSAGE");
         btn_ingredients = (Button) findViewById(R.id.btn_ingredients);
+        btn_steps = (Button) findViewById(R.id.btn_steps);
         if (message.equals("cookie")){
             tv_heading = (TextView) findViewById(R.id.tv_Heading);
             tv_heading.setText(R.string.Heading_Chocolate_Chip_Cookies);
@@ -33,5 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        btn_steps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,CardviewActivity.class);
+                i.putExtra("EXTRA_MESSAGE", message);
+                startActivity(i);
+            }
+        });
+
     }
 }
