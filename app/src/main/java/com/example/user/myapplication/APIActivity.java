@@ -13,12 +13,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class APIActivity extends AppCompatActivity {
     private static final String YOUR_APP_ID ="bc5b863d" ;
     private static final String YOUR_APP_KEY = "e655dc3eb75debe4b41ea210450085da";
     TextView textView;
     Button btn;
-    String query = "https://api.edamam.com/search?q=chicken&app_id="+YOUR_APP_ID+"&app_key="+YOUR_APP_KEY+"&from=0&to=3&calories=591-722&health=alcohol-free";
+    String query = "chicken";
+
+    String url = "https://api.edamam.com/search?q="+query+"&app_id="+YOUR_APP_ID+"&app_key="+YOUR_APP_KEY+"&from=0&to=3&calories=591-722&health=alcohol-free";
+    //DOCS : https://developer.edamam.com/edamam-docs-recipe-api
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +40,19 @@ public class APIActivity extends AppCompatActivity {
     }
     private void sendRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, query,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         textView.setText("Response is: "+ response.substring(0,500));
+                        try {
+                            JSONObject jObject = new JSONObject(response);
+                            
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }, new Response.ErrorListener() {
             @Override
