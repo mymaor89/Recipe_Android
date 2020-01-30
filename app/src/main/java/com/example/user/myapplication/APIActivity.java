@@ -14,9 +14,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 public class APIActivity extends AppCompatActivity {
+    private static final String YOUR_APP_ID ="bc5b863d" ;
+    private static final String YOUR_APP_KEY = "e655dc3eb75debe4b41ea210450085da";
     TextView textView;
     Button btn;
-
+    String query = "https://api.edamam.com/search?q=chicken&app_id="+YOUR_APP_ID+"&app_key="+YOUR_APP_KEY+"&from=0&to=3&calories=591-722&health=alcohol-free";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +34,7 @@ public class APIActivity extends AppCompatActivity {
     }
     private void sendRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://www.google.com";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, query,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
