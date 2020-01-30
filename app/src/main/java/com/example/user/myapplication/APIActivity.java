@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -45,10 +46,14 @@ public class APIActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        textView.setText("Response is: "+ response.substring(0,500));
+                      //  textView.setText("Response is: "+ response.substring(0,500));
                         try {
                             JSONObject jObject = new JSONObject(response);
-                            
+                            JSONArray  jsonArray  = jObject.getJSONArray("hits");
+                            jObject = jsonArray.getJSONObject(0);
+                            jObject = jObject.getJSONObject("recipe");
+                            String title = jObject.getString("label");
+                            textView.setText(title);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
