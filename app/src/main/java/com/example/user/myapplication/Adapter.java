@@ -10,7 +10,7 @@ package com.example.user.myapplication;
 // The adapter class which
 // extends RecyclerView Adapter
 public class Adapter
-        extends RecyclerView.Adapter<Adapter.MyView> {
+    extends RecyclerView.Adapter<Adapter.MyView> {
 
     // List with String type
     private List<String> list;

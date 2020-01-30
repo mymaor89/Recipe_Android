@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -22,16 +23,18 @@ public class APIActivity extends AppCompatActivity {
     private static final String YOUR_APP_KEY = "e655dc3eb75debe4b41ea210450085da";
     TextView textView;
     Button btn;
-    String query = "chicken";
-
-    String url = "https://api.edamam.com/search?q="+query+"&app_id="+YOUR_APP_ID+"&app_key="+YOUR_APP_KEY+"&from=0&to=3&calories=591-722&health=alcohol-free";
+    EditText edt;
+    String query;
+    String url;
     //DOCS : https://developer.edamam.com/edamam-docs-recipe-api
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api);
         textView = (TextView) findViewById(R.id.tv_result);
         btn = (Button) findViewById(R.id.btn_request);
+        edt = (EditText) findViewById(R.id.et_params);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +44,8 @@ public class APIActivity extends AppCompatActivity {
     }
     private void sendRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
+        query = edt.getText().toString();
+        url= "https://api.edamam.com/search?q="+query+"&app_id="+YOUR_APP_ID+"&app_key="+YOUR_APP_KEY+"&from=0&to=3&calories=591-722&health=alcohol-free";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
