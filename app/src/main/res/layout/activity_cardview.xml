@@ -9,7 +9,11 @@
     tools:context="com.example.user.myapplication.CardviewActivity"
     android:background="@drawable/creme"
     android:id="@+id/relativelayout">
-
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"/>
     <!--Recycler View widget-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"

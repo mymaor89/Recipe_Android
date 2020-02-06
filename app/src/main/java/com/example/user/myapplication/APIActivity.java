@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class APIActivity extends AppCompatActivity {
+public class APIActivity extends BaseActivity {
     private static final String YOUR_APP_ID ="bc5b863d" ;
     private static final String YOUR_APP_KEY = "e655dc3eb75debe4b41ea210450085da";
     TextView textView;

@@ -1,6 +1,7 @@
 package com.example.user.myapplication;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
             tv_heading.setText(R.string.Heading_Chocolate_Chip_Cookies);
             imageView = (ImageView) findViewById(R.id.image_view);
             imageView.setImageResource(R.drawable.cookie);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                imageView.setClipToOutline(true);
+            }
+
         }
         btn_ingredients.setOnClickListener(new View.OnClickListener() {
             @Override

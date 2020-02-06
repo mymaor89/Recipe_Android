@@ -31,14 +31,20 @@ public class ListActivity extends AppCompatActivity {
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(adapter);
         final TextView tv = (TextView) findViewById(R.id.counter);
+        tv.setText(listView.getCheckedItemCount()+
+                "/"+listView.getCount());
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 tv.setText(listView.getCheckedItemCount()+
                         "/"+listView.getCount());
                 if(listView.getCount() == listView.getCheckedItemCount()){
-                    for(int i=0; i<listView.getCount(); i++){
-                        listView.getChildAt(i).setBackgroundColor(Color.GREEN);
+                    for(int i=0; i<listView.getCount(); i++) {
+                        listView.getChildAt(i).setBackgroundColor(Color.argb(125,56, 166, 101));
+                    }
+                } else{
+                    for(int i=0; i<listView.getCount(); i++) {
+                        listView.getChildAt(i).setBackgroundColor(Color.WHITE);
                     }
                 }
             }

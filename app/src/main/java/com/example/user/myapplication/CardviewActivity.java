@@ -13,13 +13,14 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CardviewActivity extends AppCompatActivity {
+public class CardviewActivity extends BaseActivity {
 
     // Recycler View object
     RecyclerView recyclerView;
@@ -38,11 +39,12 @@ public class CardviewActivity extends AppCompatActivity {
     RelativeLayout rl;
     View ChildView;
     int RecyclerViewItemPosition;
-
+    ImageView imgview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
+        imgview = (ImageView) findViewById(R.id.background_image);
         rl = (RelativeLayout) findViewById(R.id.relativelayout);
         Intent intent = getIntent();
         final String message = intent.getStringExtra("EXTRA_MESSAGE");
@@ -76,16 +78,18 @@ public class CardviewActivity extends AppCompatActivity {
         Resources res = getResources();
         if (message.equals("cookie")){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                rl.setBackground(ContextCompat.getDrawable(this, R.drawable.cookie));
+                imgview.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.cookie));
+
+                }
+                else{
+                imgview.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.cookie) );
             }
-            else{
-                rl.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.cookie) );
-            }
+
         }else{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                rl.setBackground(ContextCompat.getDrawable(this, R.drawable.creme));
+                imgview.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.creme));
             }else{
-                rl.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.creme) );
+                imgview.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.creme) );
             }
         }
     }
