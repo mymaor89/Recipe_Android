@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".APIActivity"  />
+        <activity android:name=".APIActivity"
+            android:theme="@style/AppTheme.FullBackground"/>
         <activity android:name=".CardviewActivity" />
         <activity android:name=".ListActivity"/>
         <activity android:name=".MainActivity"

@@ -9,7 +9,7 @@
     </style>
 
     <style name="AppTheme.FullBackground" parent="AppTheme">
-        <item name="android:background">#bf96dc</item>
+        <item name="android:background">#bfd4e2</item>
         <!--<item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>-->
     </style>
 </resources>
