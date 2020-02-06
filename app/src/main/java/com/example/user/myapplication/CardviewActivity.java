@@ -1,6 +1,9 @@
 package com.example.user.myapplication;
 
+import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,7 +35,7 @@ public class CardviewActivity extends AppCompatActivity {
 
     // Linear Layout Manager
     LinearLayoutManager HorizontalLayout;
-
+    RelativeLayout rl;
     View ChildView;
     int RecyclerViewItemPosition;
 
@@ -39,6 +43,9 @@ public class CardviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
+        rl = (RelativeLayout) findViewById(R.id.relativelayout);
+        Intent intent = getIntent();
+        final String message = intent.getStringExtra("EXTRA_MESSAGE");
 
         // initialisation with id's
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
@@ -48,8 +55,8 @@ public class CardviewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(RecyclerViewLayoutManager);
 
         // Adding items to RecyclerView.
-        AddItemsToRecyclerViewArrayList();
-
+        AddItemsToRecyclerViewArrayList(message);
+        changeBackground(message);
         // calling constructor of adapter
         // with source list as a parameter
         adapter = new Adapter(source);
@@ -61,18 +68,39 @@ public class CardviewActivity extends AppCompatActivity {
 
         // Set adapter on recycler view
         recyclerView.setAdapter(adapter);
+
+
+    }
+
+    private void changeBackground(String message) {
+        Resources res = getResources();
+        if (message.equals("cookie")){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                rl.setBackground(ContextCompat.getDrawable(this, R.drawable.cookie));
+            }
+            else{
+                rl.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.cookie) );
+            }
+        }else{
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                rl.setBackground(ContextCompat.getDrawable(this, R.drawable.creme));
+            }else{
+                rl.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.creme) );
+            }
+        }
     }
 
     // Function to add items in RecyclerView.
-    public void AddItemsToRecyclerViewArrayList() {
+    public void AddItemsToRecyclerViewArrayList(String message) {
         // Adding items to ArrayList
         Resources res = getResources();
         String[] ingredients;
-        //if (message.equals("cookie"))
-         ingredients = res.getStringArray(R.array.steps_Creme_Brulee_array);
-       // else
-       //     ingredients = res.getStringArray(R.array.ingerdients_Creme_Brulee);
+        if (message.equals("cookie"))
+             ingredients = res.getStringArray(R.array.steps_Cookie);
+        else
+            ingredients = res.getStringArray(R.array.steps_Creme_Brulee_array);
         source = new ArrayList<String>(Arrays.asList(ingredients));
 
     }
+
 }
