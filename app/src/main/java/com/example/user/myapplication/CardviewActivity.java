@@ -34,7 +34,7 @@ public class CardviewActivity extends AppCompatActivity {
     Adapter adapter;
 
     // Linear Layout Manager
-    LinearLayoutManager HorizontalLayout;
+    LinearLayoutManager verticalLayout;
     RelativeLayout rl;
     View ChildView;
     int RecyclerViewItemPosition;
@@ -63,8 +63,8 @@ public class CardviewActivity extends AppCompatActivity {
 
         // Set Horizontal Layout Manager
         // for Recycler view
-        HorizontalLayout = new LinearLayoutManager(CardviewActivity.this,LinearLayoutManager.HORIZONTAL,false);
-        recyclerView.setLayoutManager(HorizontalLayout);
+        verticalLayout = new LinearLayoutManager(CardviewActivity.this,LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(verticalLayout);
 
         // Set adapter on recycler view
         recyclerView.setAdapter(adapter);
