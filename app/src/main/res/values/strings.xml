@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Recipe Sun</string>
     <string name="Heading_Creme_Brulee">Creme Brulee</string>
     <string name="Heading_Chocolate_Chip_Cookies">Chocolate Chip Cookies</string>
     <string name="Ingredients_heading">Ingredients</string>

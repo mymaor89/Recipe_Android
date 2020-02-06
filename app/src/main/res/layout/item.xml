@@ -10,11 +10,9 @@
     card_view:contentPadding="8dp"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="8dp"
-    card_view:cardBackgroundColor="#0F9D58"
+    card_view:cardBackgroundColor="@android:color/white"
     android:layout_margin="15dp"
     android:alpha="0.8"
-    android:backgroundTintMode="add"
-    android:backgroundTint="@android:color/white"
     >
 
     <!--Text View over Card View-->
